@@ -16,6 +16,11 @@ public abstract class Creature {
         this.liveStage = liveStage;
     }
 
+    public int moveIncrement(int coord) {
+        return coord + 1;
+    }
 
-
+    public int moveDecrement(int coord) {
+        return coord - 1;
+    }
 }
