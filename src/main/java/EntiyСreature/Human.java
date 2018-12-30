@@ -1,4 +1,4 @@
 package EntiyСreature;
 
-public class Human {
+public class Human extends Creature{
 }

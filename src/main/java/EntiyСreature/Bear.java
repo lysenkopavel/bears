@@ -1,4 +1,4 @@
 package EntiyСreature;
 
-public class Bear {
+public class Bear extends Creature {
 }
