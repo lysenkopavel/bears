@@ -15,4 +15,12 @@ public abstract class Creature {
      * Может принимать два значения: true - существо живо, false - существо мертво
      */
     protected boolean liveStage;
+
+    public int moveIncrement(int coord) {
+        return coord + 1;
+    }
+
+    public int moveDecrement(int coord) {
+        return coord - 1;
+    }
 }
