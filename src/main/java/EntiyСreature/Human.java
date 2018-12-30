@@ -42,4 +42,35 @@ public class Human extends Creature{
     public void setBagOfCement(boolean bagOfCement) {
         this.bagOfCement = bagOfCement;
     }
+
+    public boolean swingKnife(boolean isOtherHuman) {
+        if(isOtherHuman)
+            return true;
+        return false;
+    }
+
+    public String shoot(Direction direction) {
+        switch (direction) {
+            case NORTH:
+                return "";
+                default:
+                    return null;
+        }
+    }
+
+    private enum ShootResult {
+        KILL("Убийство"), WALLL("Стена"), EMPTY("Пусто");
+
+        private String name;
+        ShootResult(String name) {
+            this.name = name;
+        }
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 }
