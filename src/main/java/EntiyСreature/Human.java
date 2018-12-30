@@ -49,10 +49,16 @@ public class Human extends Creature{
         return false;
     }
 
-    public String shoot(Direction direction) {
+    public ShootResult shoot(Direction direction) {
         switch (direction) {
             case NORTH:
-                return "";
+                return ShootResult.KILL;
+            case SOUTH:
+                return ShootResult.KILL;
+            case WEST:
+                return ShootResult.WALLL;
+            case EAST:
+                return ShootResult.EMPTY;
                 default:
                     return null;
         }
