@@ -23,4 +23,6 @@ public abstract class Creature {
     public int moveDecrement(int coord) {
         return coord - 1;
     }
+
+
 }
