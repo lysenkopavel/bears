@@ -1,5 +1,8 @@
 package EntiyСreature;
 
+/**
+ * Класс-сущность игрок
+ */
 public class Human extends Creature{
 
     /**
@@ -22,11 +25,19 @@ public class Human extends Creature{
      */
     private boolean bagOfCement;
 
-    public Human(String name) {
+    //CONSTRUCTORS---------------------------------------------------------------------------------------------------------------------------------
+
+    public Human(String name,int bullets,int grenades,boolean bagOfCement) {
         this.name=name;
-        this.bullets=20;
-        this.grenades=2;
-        this.bagOfCement=true;
+        this.bullets=bullets;
+        this.grenades=grenades;
+        this.bagOfCement=bagOfCement;
+        setLiveStage(true);
+    }
+
+    public Human(String name) {
+        this(name,20,2,true);
+        setLiveStage(true);
     }
 
     //GETTERS AND SETTERS-------------------------------------------------------------------------------------------------------------------------
@@ -64,6 +75,14 @@ public class Human extends Creature{
     }
 
     //ACTION HUMAN----------------------------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Метод возвращающий призрака данного игрока при смерти
+     * @return
+     */
+    public Ghost deadHuman() {
+        return new Ghost(this);
+    }
 
     public boolean swingKnife(boolean isOtherHuman) {
         if(isOtherHuman)
