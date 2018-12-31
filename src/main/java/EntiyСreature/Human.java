@@ -1,5 +1,9 @@
 package EntiyСreature;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Класс-сущность игрок
  */
@@ -78,16 +82,28 @@ public class Human extends Creature{
 
     /**
      * Метод, вызываемый при смерти игрока
+     *
+     * @return список, содержащий инвентарь игрока, в следующим порядке: кол-во пуль, кол-во гранат, 1/0 в зависимости от наличия мешка цемента
      */
-    public void deadHuman() {
+    public List<Integer> deadHuman() {
+        List<Integer> equipmentHuman = new ArrayList<Integer>();
+        equipmentHuman.add(getBullets());
+        equipmentHuman.add(getGrenades());
+        if(bagOfCement)
+            equipmentHuman.add(1);
+        else
+            equipmentHuman.add(0);
+
         setLiveStage(false);
         setBullets(0);
         setGrenades(0);
         setBagOfCement(false);
+
+        return equipmentHuman;
     }
 
     /**
-     * Метод, вызываемый при воскрешение игрок.
+     * Метод, вызываемый при воскрешение игрока.
      * Выдает воскрешаемому игроку 10 пуль и 1 гранату.
      */
     public void resurrection() {
