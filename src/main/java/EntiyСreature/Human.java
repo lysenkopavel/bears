@@ -77,11 +77,24 @@ public class Human extends Creature{
     //ACTION HUMAN----------------------------------------------------------------------------------------------------------------------------------
 
     /**
-     * Метод возвращающий призрака данного игрока при смерти
-     * @return
+     * Метод, вызываемый при смерти игрока
      */
-    public Ghost deadHuman() {
-        return new Ghost(this);
+    public void deadHuman() {
+        setLiveStage(false);
+        setBullets(0);
+        setGrenades(0);
+        setBagOfCement(false);
+    }
+
+    /**
+     * Метод, вызываемый при воскрешение игрок.
+     * Выдает воскрешаемому игроку 10 пуль и 1 гранату.
+     */
+    public void resurrection() {
+        setLiveStage(true);
+        setBullets(10);
+        setGrenades(1);
+        setBagOfCement(false);
     }
 
     public boolean swingKnife(boolean isOtherHuman) {
