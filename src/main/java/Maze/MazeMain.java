@@ -8,7 +8,7 @@ public class MazeMain {
 
     private Wall[][] walls;
 
-    private Location[][] locations;
+    //private Location[][] locations;
 
     public MazeMain(int sizeX, int sizeY) {
         this.sizeX = sizeX;

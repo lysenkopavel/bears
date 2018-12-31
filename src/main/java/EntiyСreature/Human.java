@@ -3,6 +3,10 @@ package EntiyСreature;
 public class Human extends Creature{
 
     /**
+     * Поле, отвечающие за имя игрока
+     */
+    private String name;
+    /**
      * Поле, отвечающие за количество пулей у игрока
      */
     private int bullets;
@@ -18,6 +22,22 @@ public class Human extends Creature{
      */
     private boolean bagOfCement;
 
+    public Human(String name) {
+        this.name=name;
+        this.bullets=20;
+        this.grenades=2;
+        this.bagOfCement=true;
+    }
+
+    //GETTERS AND SETTERS-------------------------------------------------------------------------------------------------------------------------
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getBullets() {
         return bullets;
@@ -42,6 +62,8 @@ public class Human extends Creature{
     public void setBagOfCement(boolean bagOfCement) {
         this.bagOfCement = bagOfCement;
     }
+
+    //ACTION HUMAN----------------------------------------------------------------------------------------------------------------------------------
 
     public boolean swingKnife(boolean isOtherHuman) {
         if(isOtherHuman)

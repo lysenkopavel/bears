@@ -16,10 +16,20 @@ public abstract class Creature {
         this.liveStage = liveStage;
     }
 
+    /**
+     * Метод, отвечающий за перемещение существа с увелечением координаты
+     * @param coord - текущая координата существа
+     * @return текущая координата существа увеличенная на единицу
+     */
     public int moveIncrement(int coord) {
         return coord + 1;
     }
 
+    /**
+     * Метод, отвечающий за перемещение существа с уменьшением координаты
+     * @param coord - текущая координата существа
+     * @return текущая координата существа уменьшенная на единицу
+     */
     public int moveDecrement(int coord) {
         return coord - 1;
     }
