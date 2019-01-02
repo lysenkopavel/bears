@@ -118,6 +118,7 @@ public class MazeMain {
                     moveUpToWall(direction,nextPositionX,nextPositionY);
                 else
                     endCell = cell;
+                break;
             case WEST:
                 nextPositionX = positionX;
                 nextPositionY = positionY - 1;
@@ -126,6 +127,7 @@ public class MazeMain {
                     moveUpToWall(direction,nextPositionX,nextPositionY);
                 else
                     endCell = cell;
+                break;
             case EAST:
                 nextPositionX = positionX;
                 nextPositionY = positionY + 1;
@@ -134,13 +136,14 @@ public class MazeMain {
                     moveUpToWall(direction,nextPositionX,nextPositionY);
                 else
                     endCell = cell;
+                break;
         }
         return endCell;
     }
 
     public static void main(String[] args) {
         MazeMain mazeMain = new MazeMain(4,4);
-        int[] mas = mazeMain.moveUpToWall(Direction.NORTH,3,0);
+        int[] mas = mazeMain.moveUpToWall(Direction.WEST,0,3);
         for(int i : mas) {
             System.out.print(i);
         }
