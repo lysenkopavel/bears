@@ -15,6 +15,25 @@ public abstract class Creature {
      */
     protected boolean liveStage;
 
+    private int X;
+    private int Y;
+
+    public int getX() {
+        return X;
+    }
+
+    public void setX(int x) {
+        X = x;
+    }
+
+    public int getY() {
+        return Y;
+    }
+
+    public void setY(int y) {
+        Y = y;
+    }
+
     public boolean isLiveStage() {
         return liveStage;
     }
