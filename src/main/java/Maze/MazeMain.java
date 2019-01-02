@@ -110,13 +110,6 @@ public class MazeMain {
                 else
                     endCell = cell;
                 break;
-//                do {
-//                    nextPositionX = positionX - i;
-//                    nextPositionY = positionY;
-//                    cell = maze[nextPositionX][nextPositionY];
-//                    if(cell[0]==0)
-//                        i++;
-//                } while (cell[0]==1);
             case SOUTH:
                 nextPositionX = positionX + 1;
                 nextPositionY = positionY;
@@ -125,13 +118,6 @@ public class MazeMain {
                     moveUpToWall(direction,nextPositionX,nextPositionY);
                 else
                     endCell = cell;
-//                do {
-//                    nextPositionX = positionX + i;
-//                    nextPositionY = positionY;
-//                    cell = maze[nextPositionX][nextPositionY];
-//                    if(cell[1]==0)
-//                        i++;
-//                } while (cell[1]==1);
             case WEST:
                 nextPositionX = positionX;
                 nextPositionY = positionY - 1;
@@ -140,13 +126,6 @@ public class MazeMain {
                     moveUpToWall(direction,nextPositionX,nextPositionY);
                 else
                     endCell = cell;
-//                do {
-//                    nextPositionX = positionX;
-//                    nextPositionY = positionY - i;
-//                    cell = maze[nextPositionX][nextPositionY];
-//                    if(cell[2]==0)
-//                        i++;
-//                } while (cell[2]==1);
             case EAST:
                 nextPositionX = positionX;
                 nextPositionY = positionY + 1;
@@ -155,13 +134,6 @@ public class MazeMain {
                     moveUpToWall(direction,nextPositionX,nextPositionY);
                 else
                     endCell = cell;
-//                do {
-//                    nextPositionX = positionX;
-//                    nextPositionY = positionY + i;
-//                    cell = maze[nextPositionX][nextPositionY];
-//                    if(cell[3]==0)
-//                        i++;
-//                } while (cell[3]==1);
         }
         return endCell;
     }
