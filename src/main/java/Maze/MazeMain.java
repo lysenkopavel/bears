@@ -12,6 +12,8 @@ public class MazeMain {
 
     private Wall[][] walls;
 
+    private int endCell[] = null;
+
     //private Location[][] locations;
 
     public MazeMain(int sizeX, int sizeY) {
@@ -94,7 +96,7 @@ public class MazeMain {
      * @param positionY - текущая позиция игрока Y
      */
     public int[] moveUpToWall(Direction direction, int positionX, int positionY) {
-        int cell[] = null;
+        int cell[];
         int nextPositionX;
         int nextPositionY;
         //int i=1;
@@ -106,7 +108,8 @@ public class MazeMain {
                 if(cell[0]==0)
                     moveUpToWall(direction,nextPositionX,nextPositionY);
                 else
-                    return cell;
+                    endCell = cell;
+                break;
 //                do {
 //                    nextPositionX = positionX - i;
 //                    nextPositionY = positionY;
@@ -121,7 +124,7 @@ public class MazeMain {
                 if(cell[1]==0)
                     moveUpToWall(direction,nextPositionX,nextPositionY);
                 else
-                    return cell;
+                    endCell = cell;
 //                do {
 //                    nextPositionX = positionX + i;
 //                    nextPositionY = positionY;
@@ -136,7 +139,7 @@ public class MazeMain {
                 if(cell[2]==0)
                     moveUpToWall(direction,nextPositionX,nextPositionY);
                 else
-                    return cell;
+                    endCell = cell;
 //                do {
 //                    nextPositionX = positionX;
 //                    nextPositionY = positionY - i;
@@ -151,7 +154,7 @@ public class MazeMain {
                 if(cell[3]==0)
                     moveUpToWall(direction,nextPositionX,nextPositionY);
                 else
-                    return cell;
+                    endCell = cell;
 //                do {
 //                    nextPositionX = positionX;
 //                    nextPositionY = positionY + i;
@@ -160,7 +163,7 @@ public class MazeMain {
 //                        i++;
 //                } while (cell[3]==1);
         }
-        return cell;
+        return endCell;
     }
 
     public static void main(String[] args) {
