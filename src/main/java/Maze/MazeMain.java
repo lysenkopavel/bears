@@ -1,8 +1,10 @@
 package Maze;
 
 import EntiyСreature.Direction;
+import EntiyСreature.Human;
 
-import java.util.Arrays;
+import java.util.Map;
+import java.util.Random;
 
 public class MazeMain {
 
@@ -16,9 +18,20 @@ public class MazeMain {
 
     //private Location[][] locations;
 
+    private Map<Human,int[]> humanInMaze;
+
     public MazeMain(int sizeX, int sizeY) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
+    }
+
+    public Map<Human,int[]> putHumansInMaze(Human ... humans) {
+        for (Human human : humans) {
+            Random random = new Random();
+            int[] coords = {random.nextInt(3),random.nextInt(3)};
+            humanInMaze.put(human,coords);
+        }
+        return humanInMaze;
     }
 
     /**
@@ -55,12 +68,12 @@ public class MazeMain {
     /**
      * Метод возвращаюий по заданному направлению, элемент перечисления @see Wall
      * @param direction - направление, в котором хочет действовать игрок
-     * @param positionCreatureX - текущая позиция игрока по X
-     * @param positionCreatureY - текущая позиция игрока по Y
+     * @param human - действующий игрок
      * @return элемент перечисления @see Wall
      */
-    public Wall getIsWall(Direction direction, int positionCreatureX, int positionCreatureY) {
-        int[] cell = maze[positionCreatureX][positionCreatureY];
+    public Wall getIsWall(Direction direction, Human human) {
+        int[] coordHuman = humanInMaze.get(human);
+        int[] cell = maze[coordHuman[0]][coordHuman[1]];
         switch (direction) {
             case NORTH:
                 if(cell[0]==1)
