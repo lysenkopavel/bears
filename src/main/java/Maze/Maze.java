@@ -44,13 +44,12 @@ public class Maze {
         this.wallsCol = wallsCol;
     }
 
-    //TODO добавить заполнение лабиринта стенами и ячейками
-
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (int j = 0; j < sizeX; j++) {
+            sb.append("  ");
             sb.append(checkWallCol(wallsCol[0][j]));
         }
         sb.append("\n");
@@ -69,7 +68,7 @@ public class Maze {
     private String checkWallStr(Wall w){
         switch (w) {
             case NO:
-                return " ";
+                return "  ";
             case WALL:
                 return "|";
             case MAZE_EXIT:
@@ -83,11 +82,11 @@ public class Maze {
     private String checkWallCol(Wall w){
         switch (w) {
             case NO:
-                return "    ";
+                return "     ";
             case WALL:
-                return "_____";
+                return "___";
             case MAZE_EXIT:
-                return "-/ -";
+                return "_/  _";
             case INDESTRUCTIBLE_WALL:
                 return "==";
         }
