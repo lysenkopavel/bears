@@ -153,12 +153,4 @@ public class MazeMain {
         }
         return endCell;
     }
-
-    public static void main(String[] args) {
-        MazeMain mazeMain = new MazeMain(4,4);
-        int[] mas = mazeMain.moveUpToWall(Direction.WEST,0,3);
-        for(int i : mas) {
-            System.out.print(i);
-        }
-    }
 }

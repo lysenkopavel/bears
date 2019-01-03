@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+
+        <!--<mapping class="java.EntityCreature.Human"/>-->
+    </session-factory>
+</hibernate-configuration>

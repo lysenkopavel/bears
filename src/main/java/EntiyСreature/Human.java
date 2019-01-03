@@ -1,5 +1,6 @@
 package EntiyСreature;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -7,26 +8,41 @@ import java.util.Map;
 /**
  * Класс-сущность игрок
  */
+@Entity
+@Table(name = "HUMAN")
 public class Human extends Creature{
+
+    /**
+     * id игрока
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private Integer id;
 
     /**
      * Поле, отвечающие за имя игрока
      */
+    @Column(name = "NAME")
     private String name;
+
     /**
      * Поле, отвечающие за количество пулей у игрока
      */
+    @Column(name = "BULLETS")
     private int bullets;
 
     /**
      * Поле, отвечающие за количество гранат у игрока
      */
+    @Column(name = "GRENADES")
     private int grenades;
 
     /**
      * Поле, отвечающие за наличие мешка цемента у игрока
      *
      */
+    @Column(name = "BAG_CEMENT")
     private boolean bagOfCement;
 
     //CONSTRUCTORS---------------------------------------------------------------------------------------------------------------------------------
@@ -45,6 +61,14 @@ public class Human extends Creature{
     }
 
     //GETTERS AND SETTERS-------------------------------------------------------------------------------------------------------------------------
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
