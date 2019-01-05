@@ -1,6 +1,7 @@
 package EntiyСreature;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +11,7 @@ import java.util.Map;
  */
 @Entity
 @Table(name = "HUMAN")
-public class Human extends Creature{
+public class Human extends Creature implements Serializable {
 
     /**
      * id игрока
@@ -58,6 +59,9 @@ public class Human extends Creature{
     public Human(String name) {
         this(name,20,2,true);
         setLiveStage(true);
+    }
+
+    public Human() {
     }
 
     //GETTERS AND SETTERS-------------------------------------------------------------------------------------------------------------------------
