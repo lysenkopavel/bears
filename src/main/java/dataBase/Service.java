@@ -15,10 +15,16 @@ public class Service extends HibernateUtil{
         //service.createHumanTable();
 //        Human Pasha = new Human("Pasha",20,2,true);
 //        service.addHumanInTable(Pasha);
-        Human humanSav = service.getHumanInTable(1);
-        System.out.println(humanSav.getName());
+//        Human humanSav = service.getHumanInTable(1);
+//        System.out.println(humanSav.getName());
+        service.deletTableHuman();
     }
 
+    /**
+     * Получает игрока из таблицы HUMAN по его id
+     * @param id - айди игрока
+     * @return игрок
+     */
     public Human getHumanInTable(int id) {
         Human human = null;
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
@@ -42,6 +48,10 @@ public class Service extends HibernateUtil{
         return human;
     }
 
+    /**
+     * Добавляет в таблицу HUMAN нового игрока
+     * @param human - игрок
+     */
     public void addHumanInTable(Human human) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
@@ -63,6 +73,31 @@ public class Service extends HibernateUtil{
         }
     }
 
+    public void deletTableHuman() {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction =null;
+        try {
+            transaction = session.beginTransaction();
+
+            session.createQuery("DELETE FROM Human").executeUpdate();
+
+            transaction.commit();
+        } catch (Exception e) {
+            if(transaction != null) {
+                transaction.rollback();
+                e.printStackTrace();
+            }
+        } finally {
+            session.close();
+            HibernateUtil.closeSessionFactory();
+        }
+    }
+
+    /**
+     * Создает таблицу HUMAN
+     * МЕТОД НЕ РЕКОМЕНДУЕМ К ИСПОЛЬЗОВАНИЮ
+     */
     public void createHumanTable() {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();

@@ -10,7 +10,7 @@ import java.util.Map;
  * Класс-сущность игрок
  */
 @Entity
-@Table(name = "HUMAN")
+@Table(name = "Human")
 public class Human extends Creature implements Serializable {
 
     /**
