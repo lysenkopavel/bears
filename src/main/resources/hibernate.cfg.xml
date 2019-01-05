@@ -28,5 +28,6 @@
         <property name="hibernate.enable_lazy_load_no_trans">true</property>
 
         <mapping class="EntiyСreature.Human"/>
+        <mapping class="EntiyСreature.Creature"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,5 +1,7 @@
 package EntiyСreature;
 
+import javax.persistence.Column;
+
 /**
  * Абстракный класс, отвечающий за абстракное живое существо.
  *
@@ -13,6 +15,7 @@ public abstract class Creature {
      * Поле, отвечающие за состояния существа.
      * Может принимать два значения: true - существо живо, false - существо мертво
      */
+    @Column(table = "Human", name = "liveStage")
     protected boolean liveStage;
 
     public boolean isLiveStage() {
