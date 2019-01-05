@@ -14,13 +14,14 @@ public class ServiceHuman extends HibernateUtil{
 
     public static void main(String[] args) {
         ServiceHuman service = new ServiceHuman();
-//        Human Ana = new Human("Ana",20,2,true);
-//        service.addHumanInTable(Ana);
+        //Human Pasha = new Human("Pasha",20,2,true);
+        //service.addHumanInTable(Pasha);
         Human humanSav = service.getHumanInTable(1);
 //        System.out.println(humanSav.getName());
-        //service.deletTableHuman();
-        service.updateBullets(humanSav,humanSav.getId(),18);
-        service.updateGrenades(humanSav,humanSav.getId(),1);
+//        service.deletTableHuman();
+//        service.updateBullets(humanSav,humanSav.getId(),18);
+//        service.updateGrenades(humanSav,humanSav.getId(),1);
+        service.updateLiveStage(humanSav,humanSav.getId(),false);
 
         HibernateUtil.closeSessionFactory();
     }
@@ -116,10 +117,40 @@ public class ServiceHuman extends HibernateUtil{
     }
 
     /**
-     * Получает игрока из таблицы HUMAN по его id
+     * Метод изменяет состояние жизни игрока
+     * @param human - игрок
      * @param id - айди игрока
-     * @return игрок
+     * @param liveStage - устанавливаемое состояние жизни игрока (true - жив, false - мертв)
+     * @return игрока, с обновленным состоянием жизни
      */
+    public Human updateLiveStage(Human human,int id,boolean liveStage) {
+        Session session = getSessionFactory().openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+
+            //session.load(Human.class,id);
+            human.setLiveStage(liveStage);
+            session.update(human);
+            //session.flush();
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+                e.printStackTrace();
+            }
+        } finally {
+            session.close();
+        }
+        return human;
+    }
+
+        /**
+         * Получает игрока из таблицы HUMAN по его id
+         * @param id - айди игрока
+         * @return игрок
+         */
     public Human getHumanInTable(int id) {
         Human human = null;
         Session session = getSessionFactory().openSession();

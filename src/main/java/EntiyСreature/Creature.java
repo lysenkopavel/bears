@@ -1,6 +1,7 @@
 package EntiyСreature;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 
 /**
  * Абстракный класс, отвечающий за абстракное живое существо.
@@ -9,6 +10,8 @@ import javax.persistence.Column;
  * true - сущесиво живое
  * false - существо мертвое либо призрак
  */
+
+@MappedSuperclass
 public abstract class Creature {
 
     /**
